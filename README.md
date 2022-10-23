@@ -1,6 +1,6 @@
-# 👾 opengl-imgui-cmake-template
+# 🏭 OpenGL-IMGui-Docking-CMake-Template
 
-A quick and easy way to get started using OpenGL 3.3 Core Profile together with [imgui](https://github.com/ocornut/imgui) in a CMake environment.
+A quick and easy way to get started using OpenGL 3.3 Core Profile together with [imgui](https://github.com/ocornut/imgui) (Docking Branch) in a CMake environment.
 
 This template only contains a wrapper class for shaders, and one for the window with appropriate `Initialize/LoadContent/Update/Render` as a game loop.
 
@@ -11,10 +11,11 @@ The shader class allows for **hot-reloading** of the fragment shader, so wheneve
 ## Getting started
 
 1. Create a new repo by clicking `Use this template` up to the right!
-2. Download some [GLFW pre-compiled binaries](https://www.glfw.org/download) and put the `libglfw3.a` file in `libs/glfw/`. 
+2. Download some [GLFW pre-compiled binaries](https://www.glfw.org/download) and put the `libglfw3.a or libglfw3.lib` file in `libs/glfw/`. 
 3. Compile with CMake and then run it! Piece of cake!
 
 ## Remarks
 
 * Uses [imgui version 1.83](https://github.com/ocornut/imgui/releases/tag/v1.83)
-* Has only been tested on MingW64 compiler for Windows (so it may require some fixing for it to work for gcc or clang)
+* Works with Visual Studio CMake tools, Version 17 (VS 2022), and CLion
+* Has been tested on MingW64 compiler for Windows (so it may require some fixing for it to work for gcc or clang)
