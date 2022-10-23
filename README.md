@@ -1,5 +1,8 @@
 # 🏭 OpenGL-IMGui-Docking-CMake-Template
 
+![Alt Text](resources/images/imgui-cmake.png)
+
+
 A quick and easy way to get started using OpenGL 3.3 Core Profile together with [imgui](https://github.com/ocornut/imgui) (Docking Branch) in a CMake environment.
 
 This template only contains a wrapper class for shaders, and one for the window with appropriate `Initialize/LoadContent/Update/Render` as a game loop.
