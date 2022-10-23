@@ -1,6 +1,6 @@
 # 🏭 OpenGL-IMGui-Docking-CMake-Template
 
-![Alt Text](/resources/images/imgui-cmake.png)
+![Alt Text](resources/images/imgui-cmake.png)
 
 
 A quick and easy way to get started using OpenGL 3.3 Core Profile together with [imgui](https://github.com/ocornut/imgui) (Docking Branch) in a CMake environment.
