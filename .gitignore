@@ -33,3 +33,5 @@
 
 build/
 .vscode/
+cmake-build-debug-visual-studio/
+.idea/

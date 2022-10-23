@@ -26,6 +26,7 @@ int BaseWindow::Run() {
         return -1;
     }
 
+
     // Set opengl context
     glfwMakeContextCurrent(windowHandle);
 
@@ -43,6 +44,9 @@ int BaseWindow::Run() {
     while (!glfwWindowShouldClose(windowHandle)) {
         Update();
         Render();
+
+
+
     }
 
     // Unload and destroy 
