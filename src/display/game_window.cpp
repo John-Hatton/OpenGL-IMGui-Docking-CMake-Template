@@ -30,6 +30,7 @@ void GameWindow::LoadContent() {
     // Initialize imgui
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    ImPlot::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
 
     // #InverseDerivative
@@ -114,7 +115,11 @@ void GameWindow::Render() {
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
     // Draw imgui
-    ImGui::ShowDemoWindow();
+    //ImGui::ShowDemoWindow();
+    ImPlot::ShowDemoWindow();
+    //ShowExampleAppDockSpace();
+    // ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -145,4 +150,5 @@ void GameWindow::Unload() {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+    ImPlot::DestroyContext();
 }
