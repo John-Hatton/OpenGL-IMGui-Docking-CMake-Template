@@ -35,4 +35,5 @@ build/
 .vscode/
 cmake-build-debug-visual-studio/
 cmake-build-release-visual-studio/
+cmake-build-debug-tdm-64/
 .idea/

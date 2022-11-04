@@ -21,7 +21,8 @@ The shader class allows for **hot-reloading** of the fragment shader, so wheneve
 
 * Uses [imgui version 1.88](https://github.com/ocornut/imgui/releases/tag/v1.88)
 * Works with Visual Studio CMake tools, Version 17 (VS 2022), and CLion
-* Has been tested on MingW64 compiler for Windows (so it may require some fixing for it to work for gcc or clang)
+* Has been tested on MingW64 compiler for Win
+* dows (so it may require some fixing for it to work for gcc or clang)
 
 
 ---
