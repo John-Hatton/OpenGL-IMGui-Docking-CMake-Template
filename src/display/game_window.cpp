@@ -1,3 +1,8 @@
+#include <opencv2/opencv.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+
 #include "display/game_window.hpp"
 #include "shaders/shader.hpp"
 #include <iostream>
@@ -7,6 +12,11 @@ Shader s;
 unsigned int VAO;
 unsigned int VBO;
 unsigned int EBO;
+
+
+// Forward Declarations
+
+static void openCVDisplay();
 
 // Called whenever the window or framebuffer's size is changed
 void FramebufferSizeCallback(GLFWwindow* window, int width, int height) {
@@ -120,6 +130,8 @@ void GameWindow::Render() {
     //ShowExampleAppDockSpace();
     // ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
+    openCVDisplay();
+
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -151,4 +163,35 @@ void GameWindow::Unload() {
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
     ImPlot::DestroyContext();
+}
+
+static void displayLena(int columns, int rows, GLuint texture)
+{
+    ImGui::Begin("(OpenCV) Lena");
+    ImGui::Image( reinterpret_cast<void*>( static_cast<intptr_t>( texture ) ), ImVec2( columns, rows ) );
+    ImGui::End();
+}
+
+
+static void openCVDisplay()
+{
+
+    // OpenCV Stuff
+    cv::Mat image = cv::imread( "C:\\dev\\Saves\\Cxx\\NetCam\\source\\ImGui_Sample\\images\\Lena.png", cv::IMREAD_COLOR );
+
+    cv::cvtColor( image, image, cv::COLOR_BGR2RGBA );
+
+
+    GLuint texture;
+    glGenTextures( 1, &texture );
+    glBindTexture( GL_TEXTURE_2D, texture );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+    glPixelStorei( GL_UNPACK_ROW_LENGTH, 0 );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, image.cols, image.rows, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.data );
+
+
+    displayLena(image.cols, image.rows, texture);
+
+
 }
