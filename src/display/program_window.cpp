@@ -1,4 +1,4 @@
-#include "display/game_window.hpp"
+#include "display/program_window.hpp"
 #include "shaders/shader.hpp"
 #include <iostream>
 
@@ -14,7 +14,7 @@ void FramebufferSizeCallback(GLFWwindow* window, int width, int height) {
 }
 
 // 1. The first thing that is run when starting the window
-void GameWindow::Initialize() {
+void ProgramWindow::Initialize() {
     // Set GLFW stuff before window is created
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -23,7 +23,7 @@ void GameWindow::Initialize() {
 }
 
 // 2. Run after the window has been created, as well as the OpenGL context
-void GameWindow::LoadContent() {
+void ProgramWindow::LoadContent() {
     // Set callback
     glfwSetFramebufferSizeCallback(this->windowHandle, FramebufferSizeCallback);
 
@@ -89,12 +89,12 @@ void GameWindow::LoadContent() {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 }
 
-void GameWindow::Update() {
+void ProgramWindow::Update() {
     // Performs hot-reload of shader. Only reloads whenever it has been modified - so not every frame.
     s.ReloadFromFile();
 }
 
-void GameWindow::Render() {
+void ProgramWindow::Render() {
     // Bind the VAO
     glBindVertexArray(VAO);
 
@@ -145,7 +145,7 @@ void GameWindow::Render() {
     glfwPollEvents();
 }
 
-void GameWindow::Unload() {
+void ProgramWindow::Unload() {
     // Destroy imgui
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
