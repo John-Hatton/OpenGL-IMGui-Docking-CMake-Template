@@ -8,6 +8,9 @@
 #include "imgui_impl_opengl3.h"
 #include <string>
 
+/**
+ * Class Description:
+ */
 class BaseWindow {
     public:
     int windowWidth, windowHeight;

@@ -741,9 +741,13 @@ static void ShowDemoWindowWidgets()
         }
 
         {
-            IMGUI_DEMO_MARKER("Widgets/Basic/SliderInt, SliderFloat");
+            IMGUI_DEMO_MARKER("Widgets/Basic/SliderInt, SliderBool, SliderFloat");
             static int i1 = 0;
             ImGui::SliderInt("slider int", &i1, -1, 3);
+            ImGui::SameLine(); HelpMarker("CTRL+click to input value.");
+
+            static int b1 = 0;
+            ImGui::SliderInt("slider bool", &b1, 0, 1);
             ImGui::SameLine(); HelpMarker("CTRL+click to input value.");
 
             static float f1 = 0.123f, f2 = 0.0f;

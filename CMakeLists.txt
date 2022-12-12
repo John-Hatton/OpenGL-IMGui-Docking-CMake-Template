@@ -11,7 +11,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
 #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}  /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
-find_path(OpenCV_DIR "OpenCVConfig.cmake" C:/dev/sdk/opencv/build_mingw/install DOC "Root directory of OpenCV")
+#find_path(OpenCV_DIR "OpenCVConfig.cmake" C:/dev/sdk/opencv/build_mingw/install DOC "Root directory of OpenCV")
 link_directories(libs/glfw)
 
 include_directories(libs/glad)
@@ -29,11 +29,11 @@ add_executable(OpenGL-IMGui-Docking-CMake-Template ${SOURCES})
 
 
 find_package(OpenGL REQUIRED)
-find_package(OpenCV REQUIRED)
+#find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 # add libs you need
-set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
+#set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 
 target_link_libraries(OpenGL-IMGui-Docking-CMake-Template PRIVATE ${OPENGL_gl_LIBRARY})
 target_link_libraries(OpenGL-IMGui-Docking-CMake-Template PRIVATE glfw3)
